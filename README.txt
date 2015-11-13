@@ -85,3 +85,25 @@ def checkPalindrome(num):
         if fliptext == revfliptext:
             print(str(length-i) + "-tuple palindrome")
             break
+
+def egcd(big, small):
+    old_a = big
+    new_a = small
+    qArray = [-1]
+    q = old_a / new_a
+    r = old_a % new_a
+    while r != 0:
+        qArray.append(q)
+        old_a = new_a
+        new_a = r
+        q = old_a / new_a
+        r = old_a % new_a
+    gcd = q
+    qArray = qArray[::-1]
+    old_y = 0
+    new_y = 1
+    while qArray[0] != -1:
+        sum = new_y * qArray.pop(0) + old_y
+        old_y = new_y
+        new_y = sum
+    return new_y, old_y
