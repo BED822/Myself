@@ -59,11 +59,9 @@ B: 0.902848 base86 250-bits x=39.0
 A: 0.994887 base62 256-bits x=43.0
 A: 0.973587 base76 256-bits x=41.0
 A: 0.965849 base95 256-bits x=39.0
-
 B: 0.941617 base66 320-bits x=53.0
 B: 0.911619 base78 320-bits x=51.0
 B: 0.935958 base93 320-bits x=49.0
-D: 0.820759 base94 320-bits x=49.0
 C: 0.878174 base56 400-bits x=69.0
 B: 0.920072 base63 400-bits x=67.0
 B: 0.917299 base82 400-bits x=63.0
