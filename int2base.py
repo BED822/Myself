@@ -75,7 +75,7 @@ def checkPalindrome(num):
     assert isinstance(num, int) == True, "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
-		return checkDubs(num.real, base), checkDubs(num.imag, base)
+		return checkPalindrome(num.real, base), checkPalindrome(num.imag, base)
 	text = int2base(num, base, '')
 	revtext = text[::-1]
 	length = len(revtext)
