@@ -42,16 +42,14 @@ for i in range(56, 96):
 		# print "A: 0.992674 base85 32-bits x=5.0"
 
 """
-C: 0.887817 base56 40-bits x=7.0
+C: 0.887817 base56 40-bits x=7.0 C: 0.857664 base57 40-bits x=7.0
 C: 0.878174 base56 400-bits x=69.0
 D: 0.820311 base56 2560-bits x=441.0
-C: 0.857664 base57 40-bits x=7.0
-A: 0.972262 base57 64-bits x=11.0
+A: 0.972262 base57 64-bits x=11.0 B: 0.925266 base58 64-bits x=11.0
 C: 0.860400 base57 250-bits x=43.0
 C: 0.883201 base57 2000-bits x=343.0
 C: 0.890497 base57 2560-bits x=439.0
 D: 0.828291 base58 40-bits x=7.0
-B: 0.925266 base58 64-bits x=11.0
 D: 0.804254 base58 1024-bits x=175.0
 D: 0.829119 base58 4000-bits x=683.0
 C: 0.879463 base59 64-bits x=11.0
