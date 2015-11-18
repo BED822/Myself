@@ -71,7 +71,7 @@ def superDubs(num):
 	for i in range (8, 63):
 		print("base" + str(i) + ": " + str(checkDubs(num, i)))
 
-def checkPalindrome(num):
+def checkPalindrome(num, base):
     assert isinstance(num, int) == True, "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
