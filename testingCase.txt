@@ -1,0 +1,12 @@
+Camel Cases
+ExperimentCase
+Experiment_Case
+Experiment-Case
+Title cases
+experimentCase
+experiment_Case
+experiment-Case
+Lower cases
+experimentcase
+experiment_case
+experiemnt-Case
