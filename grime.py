@@ -63,4 +63,5 @@ for k in Combos_Copies2:
         for i in Two_Dice_Combos:
             print(str(Two_Dice_Combos.index(i)) +
             "-" + str(Combos_Copies1.index(j)) + 
-            " " + str(compare(i,j)))
+            "-" + str(Combos_Copies1.index(k)) + 
+            " " + str(compare(i, j, k)))
