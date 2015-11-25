@@ -6,6 +6,7 @@ Olive = [0, 5, 5, 5, 5, 5]
 
 # Blue>Magenta>Olive>Red>Yellow>Blue # Alphabetic order
 # Red>Blue>Olive>Yellow>Magenta>Red  # Number of letters
+
 def combo(a, b):
     k = []
     for i in a:
