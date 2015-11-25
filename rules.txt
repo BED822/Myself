@@ -1,0 +1,6 @@
+0. Only use non-breaking hyphens
+1. Shorter identifiers are better
+2. Do not make up new acronym/abbreviation
+3. Hyphen if you can, else underline
+4. Lower-case if you can, else camel-case
+5. Only datatypes can have ! at the end
