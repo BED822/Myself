@@ -31,18 +31,19 @@ Red_Double = combo(Red, Red)
 Red_Yellow = combo(Red, Yellow)
 Yellow_Double = combo(Yellow, Yellow)
 
-def compare(a, b):
+def compare(a, b, c):
     wins = 0
     ties = 0
     loss = 0
     for i in a:
         for j in b:
-            if i > j:
-                wins = wins + 1
-            elif i == j:
-                ties = ties + 1
-            elif i < j:
-                loss = loss + 1
+            for k in c:
+                if i > max(j, k):
+                    wins = wins + 1
+                elif i == max(j, k):
+                    ties = ties + 1
+                elif i < max(j, k):
+                    loss = loss + 1
     if wins > loss:
         return wins, ties, loss, "<=="
     else:
@@ -54,10 +55,12 @@ Two_Dice_Combos = [
     Magenta_Olive, Magenta_Red, Magenta_Yellow,
     Olive_Double, Olive_Red, Olive_Yellow,
     Red_Double, Red_Yellow, Yellow_Double]
-Combos_Copies = Two_Dice_Combos
+Combos_Copies1 = Two_Dice_Combos
+Combos_Copies2 = Two_Dice_Combos
 
-for j in Combos_Copies:
-    for i in Two_Dice_Combos:
-        print(str(Two_Dice_Combos.index(i)) +
-        "-" + str(Combos_Copies.index(j)) + 
-        " " + str(compare(i,j)))
+for k in Combos_Copies2:
+    for j in Combos_Copies1:
+        for i in Two_Dice_Combos:
+            print(str(Two_Dice_Combos.index(i)) +
+            "-" + str(Combos_Copies1.index(j)) + 
+            " " + str(compare(i,j)))
