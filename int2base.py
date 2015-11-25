@@ -61,6 +61,26 @@ def int2radix(num, base):
 		converted = str(unit) + ':' + converted
 	return converted
 
+def int2array(num, base):
+	if isinstance(num, complex) == True: 
+		# return a tuple
+		return int2base(num.real, base), int2base(num.imag, base)
+	assert isinstance(num, int) == True, "Error: not a number"
+	if num == 0:
+		# return 0
+		return '0'
+	if num < 0 and base > 0:
+		return  '-' + int2base(-num, base)
+	converted = []
+	while num != 0:
+		unit = posmod(num, base)
+		# Can't just do a straight floor-div here
+		# That would break negative bases
+		# Doing this allows us to "carry the one"
+		num = (num - unit) // base
+		converted.insert(0, unit)
+	return converted
+
 def checkDubs(num, base):
 	assert isinstance(num, int) == True, "Error: not a number"
 	if isinstance(num, complex) == True: 
