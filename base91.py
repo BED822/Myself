@@ -20,8 +20,7 @@ base92_alphabet = [
 
 decode_table = dict((v,k) for k,v in enumerate(base91_alphabet))
 
-def decode(encoded_str):
-	''' Decode Base91 string to a bytearray '''
+def decode(encoded_str): #Decode Base91 string to a bytearray
 	v = -1
 	b = 0
 	n = 0
@@ -47,8 +46,7 @@ def decode(encoded_str):
 		out += struct.pack('B', (b | v << n) & 255 )
 	return out
 
-def encode(bindata):
-	''' Encode a bytearray to a Base91 string '''
+def encode(bindata): # Encode a bytearray to a Base91 string
 	b = 0
 	n = 0
 	out = ''
