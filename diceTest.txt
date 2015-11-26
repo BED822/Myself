@@ -29,8 +29,6 @@ Combos_Copies = Dice_Combos
 
 for j in Combos_Copies:
     for i in Dice_Combos:
-        wins, ties, loss, arrow = compare(i, j)
-    if wins > loss:
         print(str(Dice_Combos.index(i)) +
-        "-" + str(Combos_Copies.index(j)) +
-        " " + str(compare(i, j)))
+            "-" + str(Combos_Copies.index(j)) +
+            " " + str(compare(i, j)))
