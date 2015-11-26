@@ -1,0 +1,36 @@
+DiceA = [6, 6, 6, 6, 6, 6, 6, 13]
+DiceB = [5, 5, 5, 5, 5, 5, 12, 12]
+DiceC = [4, 4, 4, 4, 4, 11, 11, 11]
+DiceD = [3, 3, 3, 3, 10, 10, 10, 10]
+DiceE = [2, 2, 2, 9, 9, 9, 9, 9]
+DiceF = [1, 1, 8, 8, 8, 8, 8, 8]
+DiceG = [0, 7, 7, 7, 7, 7, 7, 7]
+
+def compare(a, b):
+    wins = 0
+    ties = 0
+    loss = 0
+    for i in a:
+        for j in b:
+            if i > j:
+                wins = wins + 1
+            elif i == j:
+                ties = ties + 1
+            elif i < j:
+                loss = loss + 1
+    if wins > loss:
+        return wins, ties, loss, "<=="
+    else:
+        return wins, ties, loss, ""
+
+Dice_Combos = [
+    DiceA, DiceB, DiceC, DiceD, DiceE, DiceF, DiceG]
+Combos_Copies = Dice_Combos
+
+for j in Combos_Copies:
+    for i in Dice_Combos:
+        wins, ties, loss, arrow = compare(i, j)
+    if wins > loss:
+        print(str(Dice_Combos.index(i)) +
+        "-" + str(Combos_Copies.index(j)) +
+        " " + str(compare(i, j)))
