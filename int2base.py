@@ -1,8 +1,8 @@
 def int2base(num, base, alph):
-	if isinstance(num, complex) == True: 
+	if isinstance(num, complex) = True: 
 		# return a tuple
 		return int2base(num.real, base, alph), int2base(num.imag, base, alph)
-	assert isinstance(num, int) == True, "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	if 2 > abs(base) or len(alph) < base:
 		print('Base out of range, int2radix is used instead')
 		return(int2radix(num, base))
@@ -43,7 +43,7 @@ def int2radix(num, base):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return int2base(num.real, base), int2base(num.imag, base)
-	assert isinstance(num, int) == True, "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	if num == 0:
 		# return 0
 		return '0'
@@ -66,7 +66,7 @@ def int2array(num, base):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return int2base(num.real, base), int2base(num.imag, base)
-	assert isinstance(num, int) == True, "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	if num == 0:
 		# return 0
 		return '0'
@@ -83,7 +83,7 @@ def int2array(num, base):
 	return converted
 
 def checkDubs(num, base):
-	assert isinstance(num, int) == True, "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return checkDubs(num.real, base), checkDubs(num.imag, base)
@@ -112,12 +112,12 @@ def checkDubs(num, base):
 		return "Last digit is " + str(last)
 
 def superDubs(num):
-	assert isinstance(num, int) == True, "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	for i in range (8, 63):
 		print("base" + str(i) + ": " + str(checkDubs(num, i)))
 
 def checkPalindrome(num, base):
-    assert isinstance(num, int) == True, "Error: not a number"
+    assert isinstance(num, int), "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return checkPalindrome(num.real, base), checkPalindrome(num.imag, base)
