@@ -4,33 +4,33 @@ from fractions import gcd
 from decimal import *
 
 original_list = [25, 32, 40, 50, 64, 80, 100, 
-    125, 128, 160, 200, 250, 256, 320, 
-    400, 500, 512, 625, 640, 800, 1000, 
-    1024, 1250, 1280, 1600, 2000, 2048,
-    2500, 2560, 3125, 3200, 4000, 4096]
+	125, 128, 160, 200, 250, 256, 320, 
+	400, 500, 512, 625, 640, 800, 1000, 
+	1024, 1250, 1280, 1600, 2000, 2048,
+	2500, 2560, 3125, 3200, 4000, 4096]
 extended_list = [5000, 5120, 6250, 6400, 8000, 8192,
-    10000, 10240, 12500, 12800, 15625, 16000, 16384]
+	10000, 10240, 12500, 12800, 15625, 16000, 16384]
 
 def printingPress(key, dec, i, bit, int):
-    return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
+	return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
 
 for bit in list:
-    for i in range(56, 96):
-        x = bit * log10(2) / log10(i)
-        dec, int = modf(x)
-        dec = round(Decimal(dec), 6) # makes dec managable
-        if dec >= Decimal(0.8):
-            int = int+ 1 # Ceiling of x (sice dec > 0)
-            factor = gcd(bit, int)
-            if factor == 1:
-                if dec >= Decimal(0.95):
-                    print(printingPress('A', dec, i, bit, int))
-                elif dec >= Decimal(0.9):
-                    print(printingPress('B', dec, i, bit, int))
-                elif dec >= Decimal(0.85):
-                    print(printingPress('C', dec, i, bit, int))
-                else:
-                    print(printingPress('D', dec, i, bit, int))
+	for i in range(56, 96):
+		x = bit * log10(2) / log10(i)
+		dec, int = modf(x)
+		dec = round(Decimal(dec), 6) # makes dec managable
+		if dec >= Decimal(0.8):
+			int = int+ 1 # Ceiling of x (sice dec > 0)
+			factor = gcd(bit, int)
+			if factor == 1:
+				if dec >= Decimal(0.95):
+					print(printingPress('A', dec, i, bit, int))
+				elif dec >= Decimal(0.9):
+					print(printingPress('B', dec, i, bit, int))
+				elif dec >= Decimal(0.85):
+					print(printingPress('C', dec, i, bit, int))
+				else:
+					print(printingPress('D', dec, i, bit, int))
 # e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
 # print "A: 0.992674 base85 32-bits x=5.0"
 
@@ -120,4 +120,50 @@ D: 0.841387 base95 4000-bits x=609.0
 C: 0.858317 base68 4096-bits x=673.0
 B: 0.944653 base90 4096-bits x=631.0
 B: 0.905710 base94 4096-bits x=625.0
+"""
+"""
+A: 0.977169 base56 5000-bits x=861.0
+C: 0.897955 base80 5000-bits x=791.0
+D: 0.824353 base94 5000-bits x=763.0
+A: 0.961476 base84 5120-bits x=801.0
+D: 0.827853 base85 5120-bits x=799.0
+A: 0.975326 base93 5120-bits x=783.0
+B: 0.920498 base58 6250-bits x=1067.0
+A: 0.978277 base72 6250-bits x=1013.0
+D: 0.832345 base66 6400-bits x=1059.0
+B: 0.904790 base61 8000-bits x=1349.0
+D: 0.806854 base67 8000-bits x=1319.0
+C: 0.866498 base71 8000-bits x=1301.0
+C: 0.854872 base60 8192-bits x=1387.0
+B: 0.907160 base95 8192-bits x=1247.0
+B: 0.938076 base60 10000-bits x=1693.0
+A: 0.988079 base78 10000-bits x=1591.0
+B: 0.932473 base82 10000-bits x=1573.0
+B: 0.904887 base92 10000-bits x=1533.0
+B: 0.943470 base76 10240-bits x=1639.0
+D: 0.801068 base75 12500-bits x=2007.0
+B: 0.936986 base79 12500-bits x=1983.0
+A: 0.960737 base60 12800-bits x=2167.0
+A: 0.975211 base81 12800-bits x=2019.0
+C: 0.872145 base91 12800-bits x=1967.0
+D: 0.830344 base94 12800-bits x=1953.0
+B: 0.900866 base69 15625-bits x=2558.0
+D: 0.829270 base76 15625-bits x=2501.0
+B: 0.918873 base78 15625-bits x=2486.0
+A: 0.965232 base83 15625-bits x=2451.0
+D: 0.829141 base85 15625-bits x=2438.0
+B: 0.943480 base88 15625-bits x=2419.0
+C: 0.854106 base89 15625-bits x=2413.0
+C: 0.862843 base90 15625-bits x=2407.0
+A: 0.966973 base91 15625-bits x=2401.0
+D: 0.826103 base94 15625-bits x=2384.0
+D: 0.802861 base63 16000-bits x=2677.0
+D: 0.849172 base76 16000-bits x=2561.0
+C: 0.873455 base80 16000-bits x=2531.0
+A: 0.998124 base88 16000-bits x=2477.0
+C: 0.899184 base57 16384-bits x=2809.0
+C: 0.868070 base58 16384-bits x=2797.0
+B: 0.916437 base67 16384-bits x=2701.0
+B: 0.924779 base73 16384-bits x=2647.0
+B: 0.937092 base87 16384-bits x=2543.0
 """
