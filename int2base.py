@@ -117,38 +117,43 @@ def superDubs(num):
 		print("base" + str(i) + ": " + str(checkDubs(num, i)))
 
 def checkPalindrome(num, base):
-    assert isinstance(num, int), "Error: not a number"
+	assert isinstance(num, int), "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return checkPalindrome(num.real, base), checkPalindrome(num.imag, base)
 	text = int2base(num, base, '')
 	revtext = text[::-1]
 	length = len(revtext)
-    for i in range(0, length-2): #Since doubles are not palindromes
-        fliptext = revtext[:-i]
-        revfliptext = fliptext[::-1]
-        if fliptext == revfliptext:
-            print(str(length-i) + "-tuple palindrome")
-            break
+	for i in range(0, length-2): #Since doubles are not palindromes
+		fliptext = revtext[:-i]
+		revfliptext = fliptext[::-1]
+		if fliptext == revfliptext:
+			if fliptext == length:
+				return "full palindrome"
+			elif fliptext == length - 1:
+				return "half palindrome"
+			else:
+				return str(length-i) + "-tuple palindrome"
+
 
 def egcd(big, small):
-    old_a = big
-    new_a = small
-    qArray = [-1]
-    q = old_a / new_a
-    r = old_a % new_a
-    while r != 0:
-        qArray.append(q)
-        old_a = new_a
-        new_a = r
-        q = old_a / new_a
-        r = old_a % new_a
-    gcd = q
-    qArray = qArray[::-1]
-    old_y = 0
-    new_y = 1
-    while qArray[0] != -1:
-        sum = new_y * qArray.pop(0) + old_y
-        old_y = new_y
-        new_y = sum
-    return new_y, old_y
+	old_a = big
+	new_a = small
+	qArray = [-1]
+	q = old_a / new_a
+	r = old_a % new_a
+	while r != 0:
+		qArray.append(q)
+		old_a = new_a
+		new_a = r
+		q = old_a / new_a
+		r = old_a % new_a
+	gcd = q
+	qArray = qArray[::-1]
+	old_y = 0
+	new_y = 1
+	while qArray[0] != -1:
+		sum = new_y * qArray.pop(0) + old_y
+		old_y = new_y
+		new_y = sum
+	return new_y, old_y
