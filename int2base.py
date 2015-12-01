@@ -1,5 +1,5 @@
 def int2base(num, base, alph):
-	if isinstance(num, complex) = True: 
+	if isinstance(num, complex) == True: 
 		# return a tuple
 		return int2base(num.real, base, alph), int2base(num.imag, base, alph)
 	assert isinstance(num, int), "Error: not a number"
@@ -128,9 +128,9 @@ def checkPalindrome(num, base):
 		fliptext = revtext[:-i]
 		revfliptext = fliptext[::-1]
 		if fliptext == revfliptext:
-			if fliptext == length:
+			if len(fliptext) == length:
 				return "full palindrome"
-			elif fliptext == length - 1:
+			elif len(fliptext) == length - 1:
 				return "half palindrome"
 			else:
 				return str(length-i) + "-tuple palindrome"
