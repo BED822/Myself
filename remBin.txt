@@ -1,0 +1,7 @@
+def remBin(a, n):
+	x = 2 ** n
+	while a > x:
+		r = a % x
+		a = a >> n
+		a += r
+	return a
