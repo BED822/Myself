@@ -1,0 +1,11 @@
+def translate(input):
+	assert input.isdigit(), "input not numbers"
+	assert '8' not in input, "input contains 8s"
+	assert '9' not in input, "input contains 9s"
+	output = ''
+	current_state = 8
+	for i in range(0, len(input)):
+		current_state += ( int(input[i]) + 1 )
+		current_state %= 9
+		output += str(current_state)
+	return output
