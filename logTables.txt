@@ -33,16 +33,25 @@ Generator lists:
 50 |a5 a6 a7 a9 aa ac ad b2 b4 b7 b8 b9 ba be bf c0 
 60 |c1 c4 c8 c9 ce cf d0 d6 d7 da dc dd de e2 e3 e5 
 70 |e6 e7 e9 ea eb ee f0 f1 f4 f5 f6 f8 fb fd fe ff
-80 |03 05 06 09 0b 0e 11 12 13 14 17 18 19 1a 1c 1e 
-90 |1f 21 22 23 27 28 2a 2c 30 31 3c 3e 3f 41 45 46 
-a0 |47 48 49 4b 4c 4e 4f 52 54 56 57 58 59 5a 5b 5f 
-b0 |64 65 68 69 6d 6e 70 71 76 77 79 7a 7b 7e 81 84 
-c0 |86 87 88 8a 8e 8f 90 93 95 96 98 99 9b 9d a0 a4 
-d0 |a5 a6 a7 a9 aa ac ad b2 b4 b7 b8 b9 ba be bf c0 
-e0 |c1 c4 c8 c9 ce cf d0 d6 d7 da dc dd de e2 e3 e5 
-f0 |e6 e7 e9 ea eb ee f0 f1 f4 f5 f6 f8 fb fd fe ff
 
-
+   | 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+---|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+00 |         00    01 02       03
+10 |
+20 |
+30 |
+40 |
+50 |
+60 |
+70 |
+80 |
+90 |
+a0 |
+b0 |
+c0 |
+d0 |
+e0 |
+f0 |
 
 Generator: 0x03
 
