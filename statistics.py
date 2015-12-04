@@ -3,40 +3,62 @@ from math import modf
 from fractions import gcd
 from decimal import *
 
-original_list = [
+# list of 2^m * 5^n
+original_list_1 = [
 	25, 32, 40, 50, 64, 80, 100, 
 	125, 128, 160, 200, 250, 256]
-medium_list = [
+medium_list_1 = [
 	320, 400, 500, 512, 625, 640, 800, 1000, 
 	1024, 1250, 1280, 1600, 2000, 2048,
 	2500, 2560, 3125, 3200, 4000, 4096]
-long_list = [
+long_list_1 = [
 	5000, 5120, 6250, 6400, 8000, 8192, 10000, 
 	10240, 12500, 12800, 15625, 16000, 16384]
-extended_list = [
+extended_list_1 = [
 	20000, 20480, 25000, 25600, 31250, 32000, 32768, 
 	40000, 40960, 50000, 51200, 62500, 64000, 65536]
+
+# list of 3^l * (2^m * 5^n) for 3 and 9
+original_list_3 = [
+	18, 24, 30, 36, 45, 48, 60, 72, 75, 
+	90, 96, 120, 144, 150, 180, 192, 225
+	]
+medium_list_3 = [
+	
+	]
+long_list_3 = [
+	4500, 4608, 4800, 5625, 5760, 6000, 6144, 7200, 
+	7500, 7680, 9000, 9216, 9375, 9600, 11250, 
+	11520, 12000 12288, 14400, 15000, 15360
+	]
+extended_list_3 = [
+	18000, 18432, 18750, 19200, 22500, 23040, 24000, 
+	24576, 28125, 28800, 30000, 30720, 36000, 36864, 
+	37500, 38400, 45000, 46080, 46875 48000, 49152, 
+	56250, 57600, 60000, 61440
+	]
 
 def printingPress(key, dec, i, bit, int):
 	return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
 
-for bit in list:
-	for i in range(56, 96):
-		x = bit * log10(2) / log10(i)
-		dec, int = modf(x)
-		dec = round(Decimal(dec), 6) # makes dec managable
-		if dec >= Decimal(0.8):
-			int = int+ 1 # Ceiling of x (sice dec > 0)
-			factor = gcd(bit, int)
-			if factor == 1:
-				if dec >= Decimal(0.95):
-					print(printingPress('A', dec, i, bit, int))
-				elif dec >= Decimal(0.9):
-					print(printingPress('B', dec, i, bit, int))
-				elif dec >= Decimal(0.85):
-					print(printingPress('C', dec, i, bit, int))
-				else:
-					print(printingPress('D', dec, i, bit, int))
+def show_list(list):
+	for bit in list:
+		for i in range(56, 96):
+			x = bit * log10(2) / log10(i)
+			dec, int = modf(x)
+			dec = round(Decimal(dec), 6) # makes dec managable
+			if dec >= Decimal(0.8):
+				int = int+ 1 # Ceiling of x (sice dec > 0)
+				factor = gcd(bit, int)
+				if factor == 1:
+					if dec >= Decimal(0.95):
+						print(printingPress('A', dec, i, bit, int))
+					elif dec >= Decimal(0.9):
+						print(printingPress('B', dec, i, bit, int))
+					elif dec >= Decimal(0.85):
+						print(printingPress('C', dec, i, bit, int))
+					else:
+						print(printingPress('D', dec, i, bit, int))
 # e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
 # print "A: 0.992674 base85 32-bits x=5.0"
 
