@@ -5,6 +5,38 @@ from decimal import *
 
 ################################################################################
 
+def printingPress(key, dec, i, bit, int):
+	if i == 56:
+		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int) + " <=="
+	else:
+		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
+
+def show_list(list):
+	for bit in list:
+		check_bits(bit)
+
+def check_bits(bit):
+	for i in range(56, 96):
+		x = bit * log10(2) / log10(i)
+		dec, int = modf(x)
+		dec = round(Decimal(dec), 6) # makes dec managable
+		if dec >= Decimal(0.8):
+			int = int+ 1 # Ceiling of x (sice dec > 0)
+			factor = gcd(bit, int)
+			if factor == 1:
+				if dec >= Decimal(0.95):
+					print(printingPress('A', dec, i, bit, int))
+				elif dec >= Decimal(0.9):
+					print(printingPress('B', dec, i, bit, int))
+				elif dec >= Decimal(0.85):
+					print(printingPress('C', dec, i, bit, int))
+				else:
+					print(printingPress('D', dec, i, bit, int))
+# e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
+# print "A: 0.992674 base85 32-bits x=5.0"
+
+################################################################################
+
 total_list = [
 	original_list_1, medium_list_1, long_list_1, extended_list_1,
 	original_list_3, medium_list_3, long_list_3, extended_list_3,
@@ -69,38 +101,6 @@ extended_list_27 = [
 	34560, 38880, 40500, 41472, 43200, 48600, 50625, 
 	51840, 54000, 55296, 60750, 62208, 64800
 	]
-
-################################################################################
-
-def printingPress(key, dec, i, bit, int):
-	if i == 56:
-		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int) + " <=="
-	else:
-		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
-
-def show_list(list):
-	for bit in list:
-		check_bits(bit)
-
-def check_bits(bit):
-	for i in range(56, 96):
-		x = bit * log10(2) / log10(i)
-		dec, int = modf(x)
-		dec = round(Decimal(dec), 6) # makes dec managable
-		if dec >= Decimal(0.8):
-			int = int+ 1 # Ceiling of x (sice dec > 0)
-			factor = gcd(bit, int)
-			if factor == 1:
-				if dec >= Decimal(0.95):
-					print(printingPress('A', dec, i, bit, int))
-				elif dec >= Decimal(0.9):
-					print(printingPress('B', dec, i, bit, int))
-				elif dec >= Decimal(0.85):
-					print(printingPress('C', dec, i, bit, int))
-				else:
-					print(printingPress('D', dec, i, bit, int))
-# e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
-# print "A: 0.992674 base85 32-bits x=5.0"
 
 ################################################################################
 
