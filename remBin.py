@@ -6,7 +6,7 @@ def remBin(numerator):
 			modulus += numerator & 31
 			numerator >>= 5
 		numerator = modulus
-	if m == 31:
+	if modulus == 31:
 		return 0
 	return modulus
 """
