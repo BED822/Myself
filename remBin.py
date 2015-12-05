@@ -1,11 +1,12 @@
-def remBin(a, n):
-	assert a >= 0, "a is not positive"
-	x = ( 1 << n ) - 1
-	while a > x:
-		r = a % x
-		a = a >> n
-		a += r
-	return a
+def remBin(numerator):
+	modulus = numerator
+	while numerator > 31:
+		modulus = 0
+		while numerator:
+			modulus += numerator & 31
+			numerator >>= 5
+		numerator = modulus
+	return modulus
 """
 unsigned int n;                      // numerator
 const unsigned int s;                // s > 0
