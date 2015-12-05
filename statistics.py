@@ -4,6 +4,7 @@ from fractions import gcd
 from decimal import *
 
 # list of 2^m * 5^n
+# excludes 2, 4, 5, 8, 10, 16, 20
 original_list_1 = [
 	25, 32, 40, 50, 64, 80, 100, 
 	125, 128, 160, 200, 250, 256]
@@ -19,6 +20,7 @@ extended_list_1 = [
 	40000, 40960, 50000, 51200, 62500, 64000, 65536]
 
 # list of 3^l * (2^m * 5^n) for 1 and 2
+# excludes 3, 6, 9, 12, 15, 18
 original_list_3 = [
 	24, 30, 36, 45, 48, 60, 72, 75, 90, 
 	96, 120, 144, 150, 180, 192, 225
