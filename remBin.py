@@ -1,5 +1,5 @@
 def remBin(a, n):
-	x = 2 ** n
+	assert a >= 0, "a is not positive"
 	while a > x:
 		r = a % x
 		a = a >> n
