@@ -28,7 +28,7 @@ B: 0.905296 base92 32-bits x=5.0
 C: 0.893596 base93 32-bits x=5.0
 C: 0.882076 base94 32-bits x=5.0
 C: 0.870731 base95 32-bits x=5.0
-C: 0.887817 base56 40-bits x=7.0
+C: 0.887817 base56 40-bits x=7.0 <==
 C: 0.857664 base57 40-bits x=7.0
 D: 0.828291 base58 40-bits x=7.0
 A: 0.972262 base57 64-bits x=11.0
