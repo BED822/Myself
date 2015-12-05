@@ -3,6 +3,14 @@ from math import modf
 from fractions import gcd
 from decimal import *
 
+################################################################################
+
+total_list = [
+	original_list_1, medium_list_1, long_list_1, extended_list_1,
+	original_list_3, medium_list_3, long_list_3, extended_list_3,
+	original_list_27, medium_list_27, long_list_27, extended_list_27
+	]
+	
 # list of 2^m * 5^n
 # excludes 2, 4, 5, 8, 10, 16, 20
 original_list_1 = [
@@ -62,6 +70,8 @@ extended_list_27 = [
 	51840, 54000, 55296, 60750, 62208, 64800
 	]
 
+################################################################################
+
 def printingPress(key, dec, i, bit, int):
 	if i == 56:
 		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int) + " <=="
@@ -92,14 +102,7 @@ def check_bits(bit):
 # e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
 # print "A: 0.992674 base85 32-bits x=5.0"
 
-total_list = [
-	original_list_1, medium_list_1, long_list_1, extended_list_1,
-	original_list_3, medium_list_3, long_list_3, extended_list_3,
-	original_list_27, medium_list_27, long_list_27, extended_list_27
-	]
-for item in total_list:
-	show_list(item)
-	print("")
+################################################################################
 
 def bitList2(x, y):
 	output = []
