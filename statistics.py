@@ -63,7 +63,10 @@ extended_list_27 = [
 	]
 
 def printingPress(key, dec, i, bit, int):
-	return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
+	if i == 56:
+		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int) + " <=="
+	else:
+		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int)
 
 def show_list(list):
 	for bit in list:
@@ -85,3 +88,12 @@ def show_list(list):
 						print(printingPress('D', dec, i, bit, int))
 # e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
 # print "A: 0.992674 base85 32-bits x=5.0"
+
+total_list = [
+	original_list_1, medium_list_1, long_list_1, extended_list_1,
+	original_list_3, medium_list_3, long_list_3, extended_list_3,
+	original_list_27, medium_list_27, long_list_27, extended_list_27
+	]
+for item in total_list:
+	show_list(item)
+	print("")
