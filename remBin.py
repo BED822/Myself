@@ -9,6 +9,9 @@ def rem31(numerator):
 	if modulus == 31:
 		return 0
 	return modulus
+def rem62(numerator):
+	x = 31 * (numerator % 2) + 32 * (rem31(numerator))
+	return x % 62
 """
 unsigned int n;                      // numerator
 const unsigned int s;                // s > 0
