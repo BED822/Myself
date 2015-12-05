@@ -70,22 +70,25 @@ def printingPress(key, dec, i, bit, int):
 
 def show_list(list):
 	for bit in list:
-		for i in range(56, 96):
-			x = bit * log10(2) / log10(i)
-			dec, int = modf(x)
-			dec = round(Decimal(dec), 6) # makes dec managable
-			if dec >= Decimal(0.8):
-				int = int+ 1 # Ceiling of x (sice dec > 0)
-				factor = gcd(bit, int)
-				if factor == 1:
-					if dec >= Decimal(0.95):
-						print(printingPress('A', dec, i, bit, int))
-					elif dec >= Decimal(0.9):
-						print(printingPress('B', dec, i, bit, int))
-					elif dec >= Decimal(0.85):
-						print(printingPress('C', dec, i, bit, int))
-					else:
-						print(printingPress('D', dec, i, bit, int))
+		check_bits(bit)
+
+def check_bits(bit):
+	for i in range(56, 96):
+		x = bit * log10(2) / log10(i)
+		dec, int = modf(x)
+		dec = round(Decimal(dec), 6) # makes dec managable
+		if dec >= Decimal(0.8):
+			int = int+ 1 # Ceiling of x (sice dec > 0)
+			factor = gcd(bit, int)
+			if factor == 1:
+				if dec >= Decimal(0.95):
+					print(printingPress('A', dec, i, bit, int))
+				elif dec >= Decimal(0.9):
+					print(printingPress('B', dec, i, bit, int))
+				elif dec >= Decimal(0.85):
+					print(printingPress('C', dec, i, bit, int))
+				else:
+					print(printingPress('D', dec, i, bit, int))
 # e.g. 32*ln(2)/ln(85)=4.992674..., int = 5, dec=0.992674, gcd=1, A:
 # print "A: 0.992674 base85 32-bits x=5.0"
 
