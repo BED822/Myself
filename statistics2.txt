@@ -1,3 +1,44 @@
+A: 0.972262 base57 64-bits x=11.0
+B: 0.925266 base58 64-bits x=11.0
+C: 0.879463 base59 64-bits x=11.0
+D: 0.834804 base60 64-bits x=11.0
+A: 0.966122 base72 80-bits x=13.0
+B: 0.924437 base73 80-bits x=13.0
+C: 0.883582 base74 80-bits x=13.0
+D: 0.843527 base75 80-bits x=13.0
+D: 0.804246 base76 80-bits x=13.0
+A: 0.960906 base60 112-bits x=19.0
+C: 0.884667 base61 112-bits x=19.0
+D: 0.810263 base62 112-bits x=19.0
+A: 0.954324 base69 128-bits x=21.0
+C: 0.883356 base70 128-bits x=21.0
+D: 0.813864 base71 128-bits x=21.0
+A: 0.978096 base61 160-bits x=27.0
+C: 0.871805 base62 160-bits x=27.0
+B: 0.920596 base74 192-bits x=31.0
+D: 0.824464 base75 192-bits x=31.0
+B: 0.926592 base67 224-bits x=37.0
+A: 0.994887 base62 256-bits x=43.0
+D: 0.828846 base63 256-bits x=43.0
+A: 0.973587 base76 256-bits x=41.0
+C: 0.850282 base77 256-bits x=41.0
+A: 0.965849 base95 256-bits x=39.0
+B: 0.941617 base66 320-bits x=53.0
+B: 0.911619 base78 320-bits x=51.0
+B: 0.935958 base93 320-bits x=49.0
+D: 0.820759 base94 320-bits x=49.0
+B: 0.915824 base79 384-bits x=61.0
+C: 0.863548 base92 384-bits x=59.0
+A: 0.950480 base63 448-bits x=75.0
+D: 0.848524 base71 448-bits x=73.0
+C: 0.864457 base80 448-bits x=71.0
+D: 0.840525 base91 448-bits x=69.0
+A: 0.983180 base72 512-bits x=83.0
+A: 0.987951 base80 512-bits x=81.0
+C: 0.868082 base90 512-bits x=79.0
+
+############################################################
+
 A: 0.989285 base77 25-bits x=4.0
 A: 0.992674 base85 32-bits x=5.0
 C: 0.887817 base56 40-bits x=7.0 <==
