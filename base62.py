@@ -21,14 +21,11 @@ def encode(num, exp):
 
 def decode(num, exp):
 	if exp == 256:
-		base = 62
-		limit = 43
+		base, limit = 62, 43
 	elif exp == 160:
-		base = 61
-		limit = 27
+		base, limit = 61, 27
 	elif exp == 112:
-		base = 60
-		limit = 19
+		base, limit = 60, 19
 	else:
 		assert "exp not valid"
 	assert len(str) <= limit, "too long"
