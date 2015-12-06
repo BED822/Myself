@@ -167,7 +167,7 @@ def egcd_fast(a, b):
 	gcd = b
 	return gcd, x, y
 
-def egcd(a, b):
+def egcd_recursive(a, b):
 	if a == 0:
 		return (b, 0, 1)
 	else:
