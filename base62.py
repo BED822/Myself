@@ -39,3 +39,27 @@ def decode(num, exp):
 		mult *= base
 	assert num < (2 ** exp), "number error"
 	return num
+
+def rem31(n):
+	m = n
+	while n > 31:
+		m = 0
+		while n:
+			m += n & 31
+			n >>= 5
+		n = m
+	if m == 31:
+		return 0
+	return m
+
+def rem15(n):
+	m = n
+	while n > 15:
+		m = 0
+		while n:
+			m += n & 15
+			n >>= 4
+		n = m
+	if m == 15:
+		return 0
+	return m
