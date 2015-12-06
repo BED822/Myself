@@ -5,8 +5,6 @@ def encode(num, exp):
 		base, limit = 62, 43
 	elif exp == 160:
 		base, limit = 61, 27
-		base = 61
-		limit = 27
 	elif exp == 112:
 		base, limit = 60, 19
 	else:
