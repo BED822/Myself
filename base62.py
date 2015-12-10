@@ -21,7 +21,7 @@ def encode_block(num, exp):
 	while num != 0:
 		num, char = divmod(num, base)
 		str = (digits[char]) + str
-	return str.zfill(limit) + "_" + str(base)
+	return str.zfill(limit)
 
 def decode_block(num, exp):
 	assert check_block(exp) != false, "bad exponent"
