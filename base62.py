@@ -39,7 +39,7 @@ def rem31(n):
 	m = n
 	while n > 31:
 		m = 0
-		while n:
+		while n != 0:
 			m += n & 31
 			n >>= 5
 		n = m
@@ -51,7 +51,7 @@ def rem15(n):
 	m = n
 	while n > 15:
 		m = 0
-		while n:
+		while n != 0:
 			m += n & 15
 			n >>= 4
 		n = m
