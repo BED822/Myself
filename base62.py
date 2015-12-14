@@ -9,6 +9,7 @@ def check_block(exp):
 		base, limit = 61, 27
 	elif exp == 112:
 		base, limit = 60, 19
+	return base, limit
 
 def encode_block(num, exp):
 	assert check_block(exp) != false, "bad exponent"
