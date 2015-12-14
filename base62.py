@@ -2,7 +2,7 @@ digits='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 def check_block(exp):
 	if exp != 256 and exp != 160 and exp != 112:
-		return false
+		return False
 	elif exp == 256:
 		base, limit = 62, 43
 	elif exp == 160:
@@ -12,7 +12,7 @@ def check_block(exp):
 	return base, limit
 
 def encode_block(num, exp):
-	assert check_block(exp) != false, "bad exponent"
+	assert check_block(exp) != False, "bad exponent"
 	base, limit = check_block(exp)
 	assert num >= 0, "not positive"
 	assert num < (2 ** exp), "too big"
