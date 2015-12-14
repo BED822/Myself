@@ -47,15 +47,15 @@ def check(exp):
 	elif exp % 7 == 0:
 		return 60, 19, exp // 7
 
-def rem(n, a):
+def rem(n, a, b):
 	m = n
-	while n > 63:
+	while n > ((1 << a) - 1):
 		m = 0
 		while n != 0:
-			m += n & 63
-			n >>= 6
-			n *= a
+			m += n & ((1 << a) - 1)
+			n >>= a
+			n *= b
 		n = m
-	if m >= 64 - a:
-		return m + a - 64
+	if m + b >= (1 << a):
+		return m + b - (1 << a)
 	return m
