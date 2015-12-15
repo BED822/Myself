@@ -1,5 +1,8 @@
 digits='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~'
 
+# [0, 3, 6, 9, 11, 14, 17, 19, 22, 25, 27, 30, 33, 35, 38, 41, 43]
+# n-th element = number of character needed to represent 16*i bits
+
 def check_block(exp):
 	if exp % 16 != 0:
 		return False
@@ -52,23 +55,23 @@ def rem(n, a, b):
 #########
 
 def encode_block56(num):
-    limit = 11285
-    assert num >= 0, "not positive"
-    assert num < (2 ** 65536), "too big"
-    if num == 0:
-        return '0'.zfill(11285)
-    str=''
-    while num != 0:
-        num, char = divmod(num, 56)
-        str = (digits[char]) + str
-    return str.zfill(11285)
+	limit = 11285
+	assert num >= 0, "not positive"
+	assert num < (2 ** 65536), "too big"
+	if num == 0:
+		return '0'.zfill(11285)
+	str=''
+	while num != 0:
+		num, char = divmod(num, 56)
+		str = (digits[char]) + str
+	return str.zfill(11285)
 
 def encode_block85(num):
-    assert num >= 0, "not positive"
-    assert num < (2 ** 65536), "too big"
-    if num == 0:
-        return '0'.zfill(10225)
-    str=''
-    while num != 0:
-        num, char = divmod(num, 85)
-        str = (digits[char]) + str
+	assert num >= 0, "not positive"
+	assert num < (2 ** 65536), "too big"
+	if num == 0:
+		return '0'.zfill(10225)
+	str=''
+	while num != 0:
+		num, char = divmod(num, 85)
+		str = (digits[char]) + str
