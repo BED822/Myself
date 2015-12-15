@@ -1,15 +1,15 @@
 digits='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~'
 
 def check_block(exp):
-	if exp != 256 and exp != 160 and exp != 112:
+	if exp % 16 != 0:
 		return False
-	elif exp == 256:
-		base, limit = 62, 43
-	elif exp == 160:
-		base, limit = 61, 27
-	elif exp == 112:
-		base, limit = 60, 19
-	return base, limit
+	exp //= 16
+	if exp % 16 == 0:
+		return 62, 43, exp // 16
+	elif exp % 10 == 0:
+		return 61, 27, exp // 10
+	elif exp % 7 == 0:
+		return 60, 19, exp // 7
 
 def encode_block(num, exp):
 	assert check_block(exp) != False, "bad exponent"
@@ -35,17 +35,6 @@ def decode_block(num, exp):
 		mult *= base
 	assert num < (2 ** exp), "number error"
 	return num
-
-def check(exp):
-	if exp % 16 != 0:
-		return false
-	exp //= 16
-	if exp % 16 == 0:
-		return 62, 43, exp // 16
-	elif exp % 10 == 0:
-		return 61, 27, exp // 10
-	elif exp % 7 == 0:
-		return 60, 19, exp // 7
 
 def rem(n, a, b):
 	m = n
