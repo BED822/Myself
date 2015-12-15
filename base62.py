@@ -3,6 +3,23 @@ digits='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-
 # [0, 3, 6, 9, 11, 14, 17, 19, 22, 25, 27, 30, 33, 35, 38, 41, 43]
 # n-th element = number of character needed to represent 16*i bits
 
+def number_of_characters(bits, base):
+	assert bits % 16 == 0, "not 16"
+	bits //= 16
+	if base == 62:
+		unit, char = 16, 43
+	elif base == 61:
+		unit, char = 10, 27
+	elif base == 60:
+		unit, char = 7, 19
+	else:
+		return False
+	answer = ( bits // units ) * char
+	bits %= units
+	array = [0, 3, 6, 9, 11, 14, 17, 19, 22, 25, 27, 30, 33, 35, 38, 41]
+	answer += array[bits]
+	return answer
+
 def check_block(exp):
 	if exp % 16 != 0:
 		return False
@@ -13,6 +30,8 @@ def check_block(exp):
 		return 61, 27, exp // 10
 	elif exp % 7 == 0:
 		return 60, 19, exp // 7
+	else:
+		return False
 
 def encode_block(num, exp):
 	assert check_block(exp) != False, "bad exponent"
