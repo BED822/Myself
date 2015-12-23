@@ -1,4 +1,4 @@
-rem266(n):
+rem266(n): # 256-bit
 	m = n
 	while n > ((1 << 266) - 1):
 		m = 0
@@ -10,8 +10,20 @@ rem266(n):
 	if m + 3 >= (1 << 266):
 		return m + 3 - (1 << 266)
 	return m
+rem452(n): # 448-bit
+	m = n
+	while n > ((1 << 452) - 1):
+		m = 0
+		while n != 0:
+			m += n & ((1 << 452) - 1)
+			n >>= a
+			n *= 3
+		n = m
+	if m + 3 >= (1 << 452):
+		return m + 3 - (1 << 452)
+	return m
 
-rem521(n):
+rem521(n): # 512-bit
 	m = n
 	while n > ((1 << 521) - 1):
 		m = 0
