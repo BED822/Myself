@@ -220,9 +220,9 @@ def drunken_bishop_merge(list):
 	return '\n'.join(output) + '\n'
 
 
-def drunken_bishop_base(password):
+def drunken_bishop_1x1(password):
 	"""
-	An example based on MD5
+	A 1x1 drunken_bishop rectangle based on MD-5
 	"""
 	password = password.encode('utf-8')
 	md5 = hashlib.md5(password).hexdigest()
@@ -230,7 +230,7 @@ def drunken_bishop_base(password):
 	return drunken_bishop_merge(md5_finger)
 
 
-def drunken_bishop_power(password):
+def drunken_bishop_1x2(password):
 	"""
 	A 1x2 drunken_bishop rectangle based on SHA-256
 	"""
@@ -240,7 +240,7 @@ def drunken_bishop_power(password):
 	return drunken_bishop_merge(sha_finger)
 
 
-def drunken_bishop_super(password):
+def drunken_bishop_2x2(password):
 	"""
 	A 2x2 drunken_bishop rectangle based on SHA-512
 	"""
@@ -250,7 +250,7 @@ def drunken_bishop_super(password):
 	return drunken_bishop_merge(sha_finger)
 
 
-def drunken_bishop_ultra(password):
+def drunken_bishop_2x3(password):
 	"""
 	A 2x3 drunken_bishop rectangle based on SHA-256/512
 	"""
@@ -262,7 +262,7 @@ def drunken_bishop_ultra(password):
 	return drunken_bishop_merge(sha_finger)
 
 
-def drunken_bishop_extreme(password):
+def drunken_bishop_3x3(password):
 	"""
 	A 3x3 drunken_bishop rectangle based on SHA-256/384/512
 	"""
