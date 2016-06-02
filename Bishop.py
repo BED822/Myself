@@ -202,6 +202,9 @@ def drunken_bishop_multiple(fingerprint):
 	return ''.join(picture) + BORDER
 
 
+################################################################################
+
+
 def drunken_bishop_scrape(fingerprint):
 	room = drunken_bishop_multiple(fingerprint)
 	scan = room.split('\n')[:-1]
