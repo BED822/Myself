@@ -1,13 +1,42 @@
-def int2base(num, base, alph):
+from math import ceil, log10
+
+def posmod(num, den):
+	# Modulo constrained to 0..abs(den)
+	result = num % den
+	if result < 0:
+		result += abs(den)
+	return result
+
+def int2array(num, base):
+	if isinstance(num, complex) == True: 
+		# return a tuple
+		return [int2array(num.real, base), int2array(num.imag, base)]
+	assert isinstance(num, int), "Error: not a number"
+	assert abs(base) >= 2, "Error: base impossible"
+	if num == 0:
+		# return 0
+		return '0'
+	if num < 0 and base > 0:
+		return  ['-'] + int2array(-num, base)
+	converted = []
+	while num != 0:
+		unit = posmod(num, base)
+		# Can't just do a straight floor-div here
+		# That would break negative bases
+		# Doing this allows us to "carry the one"
+		num = (num - unit) // base
+		converted.insert(0, unit)
+	return converted
+
+def int2base(num, base, alph = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return int2base(num.real, base, alph), int2base(num.imag, base, alph)
 	assert isinstance(num, int), "Error: not a number"
-	if 2 > abs(base) or len(alph) < base:
+	if len(alph) < base:
 		print('Base out of range, int2radix is used instead')
 		return(int2radix(num, base))
-	if alph == '':
-		alph ='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+	assert abs(base) >= 2, "Error: base impossible"
 	assert ' ' not in alph, "Error: alphabet contains space"
 	if num == 0:
 		# return 0
@@ -32,55 +61,29 @@ def int2base(num, base, alph):
 		converted = alph[unit] + converted
 	return converted
 
-def posmod(num, den):
-	# Modulo constrained to 0..abs(den)
-	result = num % den
-	if result < 0:
-		result += abs(den)
-	return result
-
 def int2radix(num, base):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return int2radix(num.real, base), int2radix(num.imag, base)
 	assert isinstance(num, int), "Error: not a number"
+	assert abs(base) >= 2, "Error: base impossible"
 	if num == 0:
 		# return 0
 		return '0'
 	if num < 0 and base > 0:
 		return  '-' + int2radix(-num, base)
-	ceil = ceil(log10(base))
-	unit = posmod(num, base)
-	num = (num - unit) // base
-	converted = str(unit.zfill(ceil))
+	ceiling = ceil(log10(abs(base)))
+	converted = ""
 	while num != 0:
 		unit = posmod(num, base)
 		# Can't just do a straight floor-div here
 		# That would break negative bases
 		# Doing this allows us to "carry the one"
 		num = (num - unit) // base
-		converted = str(unit.zfill(ceil)) + ':' + converted
-	return converted
+		converted = str(unit).zfill(ceiling) + ':' + converted
+	return converted[:-1]
 
-def int2array(num, base):
-	if isinstance(num, complex) == True: 
-		# return a tuple
-		return [int2array(num.real, base), int2array(num.imag, base)]
-	assert isinstance(num, int), "Error: not a number"
-	if num == 0:
-		# return 0
-		return '0'
-	if num < 0 and base > 0:
-		return  '-' + int2array(-num, base)
-	converted = []
-	while num != 0:
-		unit = posmod(num, base)
-		# Can't just do a straight floor-div here
-		# That would break negative bases
-		# Doing this allows us to "carry the one"
-		num = (num - unit) // base
-		converted.insert(0, unit)
-	return converted
+################################################################################
 
 def checkDubs(num, base):
 	assert isinstance(num, int), "Error: not a number"
@@ -116,11 +119,11 @@ def superDubs(num):
 	for i in range (8, 63):
 		print("base" + str(i) + ": " + str(checkDubs(num, i)))
 
-def checkPalindrome(num, base):
+def checkPali(num, base):
 	assert isinstance(num, int), "Error: not a number"
 	if isinstance(num, complex) == True: 
 		# return a tuple
-		return checkPalindrome(num.real, base), checkPalindrome(num.imag, base)
+		return checkPali(num.real, base), checkPali(num.imag, base)
 	text = int2base(num, base, '')
 	revtext = text[::-1]
 	length = len(revtext)
