@@ -21,9 +21,7 @@ base92_alphabet = [
 decode_table = dict((v,k) for k,v in enumerate(base91_alphabet))
 
 def decode(encoded_str): #Decode Base91 string to a bytearray
-	v = -1
-	b = 0
-	n = 0
+	v, b, n = -1, 0, 0
 	out = bytearray()
 	for strletter in encoded_str:
 		if not strletter in decode_table:
@@ -47,8 +45,7 @@ def decode(encoded_str): #Decode Base91 string to a bytearray
 	return out
 
 def encode(bindata): # Encode a bytearray to a Base91 string
-	b = 0
-	n = 0
+	b, n = 0, 0
 	out = ''
 	for count in range(len(bindata)):
 		byte = bindata[count:count+1]
