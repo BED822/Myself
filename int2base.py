@@ -137,3 +137,4 @@ def checkPali(num, base):
 				return "half palindrome"
 			else:
 				return str(length-i) + "-tuple palindrome"
+	return "no palindrome"
