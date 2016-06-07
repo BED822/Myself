@@ -99,15 +99,13 @@ def checkDubs(num, base):
 		if last != revtext[tuple]:
 			break
 		tuple = tuple + 1
-	if last != '0':
-		if tuple == length:
-			return "Full num GET"
-		elif tuple == length - 1:
-			return "Half num GET"
-	elif last == '0' and tuple == length - 1:
-		if text[0] == '1':
+	if last != '0' and tuple == length:
+		return "Full num GET"
+	elif last != '0' and tuple == length - 1:
+		return "Half num GET"
+	elif last == '0' and tuple == length - 1 and text[0] == '1':
 			return "Full zero GET"
-		elif text[0] != '1':
+	elif last == '0' and tuple == length - 1 and text[0] != '1':
 			return "Half zero GET"
 	elif tuple > 1:
 		return str(tuple) + "-tuple " + str(last) + "-s"
