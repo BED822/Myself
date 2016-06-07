@@ -68,27 +68,3 @@ def rem(n, a, b):
 	if m + b >= (1 << a):
 		return m + b - (1 << a)
 	return m
-
-#########
-
-def encode_block56(num):
-	limit = 11285
-	assert num >= 0, "not positive"
-	assert num < (2 ** 65536), "too big"
-	if num == 0:
-		return '0'.zfill(11285)
-	str=''
-	while num != 0:
-		num, char = divmod(num, 56)
-		str = (digits[char]) + str
-	return str.zfill(11285)
-
-def encode_block85(num):
-	assert num >= 0, "not positive"
-	assert num < (2 ** 65536), "too big"
-	if num == 0:
-		return '0'.zfill(10225)
-	str=''
-	while num != 0:
-		num, char = divmod(num, 85)
-		str = (digits[char]) + str
