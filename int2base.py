@@ -124,14 +124,14 @@ def checkPali(num, base):
 		return checkPali(num.real, base), checkPali(num.imag, base)
 	text = int2base(num, base)
 	revtext = text[::-1]
+	if text == revtext:
+		return "full palindrome"
 	length = len(revtext)
-	for i in range(0, length-2): #Since doubles are not pali
+	for i in range(1, length-2): #Since doubles are not pali
 		fliptext = revtext[:-i]
 		revfliptext = fliptext[::-1]
 		if fliptext == revfliptext:
-			if len(fliptext) == length:
-				return "full palindrome"
-			elif len(fliptext) == length - 1:
+			if len(fliptext) == length - 1:
 				return "half palindrome"
 			else:
 				return str(length-i) + "-tuple palindrome"
