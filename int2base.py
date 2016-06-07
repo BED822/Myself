@@ -90,7 +90,7 @@ def checkDubs(num, base):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return checkDubs(num.real, base), checkDubs(num.imag, base)
-	text = int2base(num, base, '')
+	text = int2base(num, base)
 	revtext = text[::-1]
 	length = len(revtext)
 	last = revtext[0]
@@ -124,10 +124,10 @@ def checkPali(num, base):
 	if isinstance(num, complex) == True: 
 		# return a tuple
 		return checkPali(num.real, base), checkPali(num.imag, base)
-	text = int2base(num, base, '')
+	text = int2base(num, base)
 	revtext = text[::-1]
 	length = len(revtext)
-	for i in range(0, length-2): #Since doubles are not palindromes
+	for i in range(0, length-2): #Since doubles are not pali
 		fliptext = revtext[:-i]
 		revfliptext = fliptext[::-1]
 		if fliptext == revfliptext:
