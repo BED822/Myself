@@ -136,3 +136,8 @@ def checkPali(num, base):
 			else:
 				return str(length-i) + "-tuple palindrome"
 	return "no palindrome"
+
+def superPali(num):
+	assert isinstance(num, int), "Error: not a number"
+	for i in range (8, 63):
+		print("base" + str(i) + ": " + str(checkPali(num, i)))
