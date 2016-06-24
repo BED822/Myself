@@ -35,7 +35,7 @@ def check_block(exp):
 
 def encode_block(num, exp):
 	assert check_block(exp) != False, "bad exponent"
-	base, limit = check_block(exp)
+	base, limit, blocks = check_block(exp)
 	assert num >= 0, "not positive"
 	assert num < (2 ** exp), "too big"
 	if num == 0:
@@ -46,9 +46,9 @@ def encode_block(num, exp):
 		str = (digits[char]) + str
 	return str.zfill(limit)
 
-def decode_block(num, exp):
-	assert check_block(exp) != false, "bad exponent"
-	base, limit = check_block(exp)
+def decode_block(str, exp):
+	assert check_block(exp) != False, "bad exponent"
+	base, limit, blocks = check_block(exp)
 	assert len(str) <= limit, "too long"
 	str = str.lstrip("0")
 	num , mult = 0 , 1
