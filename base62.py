@@ -1,6 +1,3 @@
-# [0, 3, 6, 9, 11, 14, 17, 19, 22, 25, 27, 30, 33, 35, 38, 41, 43]
-# n-th element = number of character needed to represent 16*i bits
-
 digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 def number_of_characters(bits, base):
@@ -51,10 +48,10 @@ def decode_block(str, exp):
 	base, limit, blocks = check_block(exp)
 	assert len(str) <= limit, "too long"
 	str = str.lstrip("0")
-	num , mult = 0 , 1
-	for char in reversed(str):
-		num += mult * digits.index(char)
-		mult *= base
+	num = 0
+	for char in str:
+		num *= base
+		num += digits.index(char)
 	assert num < (2 ** exp), "number error"
 	return num
 
