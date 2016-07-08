@@ -3,8 +3,6 @@ from math import modf
 from fractions import gcd
 from decimal import *
 
-################################################################################
-
 def printingPress(key, dec, i, bit, int):
 	if i == 56:
 		return key + ": " + str(dec) + " base" + str(i) + " " + str(bit) + "-bits" + " x=" + str(int) + " <=="
