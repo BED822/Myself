@@ -1,4 +1,0 @@
-Working 1-128 minutes option
-Small break 1-32 minutes option
-Big break 1-64 minutes option
-Sessions 1-16 minutes option
